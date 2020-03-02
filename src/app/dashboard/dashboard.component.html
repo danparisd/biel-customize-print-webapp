@@ -1,0 +1,97 @@
+
+<div class="container">
+
+  <div class="link-container"> 
+    <a class="link" target="_blank" rel="noopener" [routerLink]="['/download']" >
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>   
+      <span>Back to Bible in Every Language</span>
+    </a>
+  </div>
+
+  <div class="area-container">
+    <form #downloadForm="ngForm" (ngSubmit)="submitDownloadRequest(downloadForm.form);"> 
+      <div class="repo" tabindex="0">
+        <span>Repository Name</span>        
+      </div>  
+      <input type="text" class="input-form-control" name="company-name" ngModel #nameField="ngModel" required minlength="3"> 
+      <br> 
+      <button class="btn-form-control" type="button" [routerLink]="['/download']" >Download </button>
+   
+      <div class="repo" tabindex="1">
+        <span>File Type</span>        
+      </div>
+       
+      <div class="parent" id="pdf-wrapper">        
+        <div class="left" >
+          <label class="label-pdf-wrapper" for="pdf"><img src="assets/img/pdf.png" width="20" height="20"/>&nbsp;&nbsp;PDF</label>
+        </div>
+        <div class="right">
+          <input id="pdf" type="radio" value="pdf" name="fileType" ngModel onclick="javascript:document.getElementById('pdf-wrapper').style.backgroundColor = '#000000';document.getElementById('doc-wrapper').style.backgroundColor = '#ffffff';document.getElementById('usfm-wrapper').style.backgroundColor = '#ffffff';">
+        </div>      
+      </div>
+      <br><br>
+      <div class="parent" id="doc-wrapper">
+        <div class="left">
+          <label class="label-doc-wrapper" for="doc"><img src="assets/img/word.png" width="20" height="20"/>&nbsp;&nbsp;Docx</label>
+        </div>
+        <div class="right">
+          <input id="doc" type="radio" value="doc" name="fileType" ngModel onclick="javascript:document.getElementById('doc-wrapper').style.backgroundColor = '#cee6ff';document.getElementById('pdf-wrapper').style.backgroundColor = '#ffffff';document.getElementById('usfm-wrapper').style.backgroundColor = '#ffffff';">
+        </div>
+      </div>
+      <br><br>
+      <div class="parent" id="usfm-wrapper">
+        <div class="left">
+          <label class="label-usfm-wrapper" for="doc"><img src="assets/img/usfm.png" width="20" height="20"/>&nbsp;&nbsp;USFM</label>
+        </div>
+        <div class="right">
+          <input id="usfm" type="radio" value="usfm" name="fileType" ngModel onclick="javascript:document.getElementById('usfm-wrapper').style.backgroundColor = '#cee6ff';document.getElementById('pdf-wrapper').style.backgroundColor = '#ffffff';document.getElementById('doc-wrapper').style.backgroundColor = '#ffffff';">
+        </div>
+      </div>
+      <br><br>
+   
+     
+       
+      
+      <div class="repo" tabindex="2">
+        <span>Format</span>        
+      </div>
+      
+    <div style="display:inline-flexbox;">
+        <div id="line-height-control" class="parent">
+          <div class="left">
+            <label class="label-height-wrapper" for="line_height"><img src="assets/img/line-height.png" width="20" height="20"/>&nbsp;&nbsp;Line height</label>
+          </div>
+          <div class="right">
+            <button class="ico-remove-btn" [routerLink]="['/decreaseHeight']" ></button>
+            <label class="adjust-value">1.5x</label>
+            <button class="ico-add-btn" [routerLink]="['/increaseHeight']" ></button>    
+          </div>
+        </div>
+        <br><br>
+        <div class="left">
+          <label class="label-height-wrapper" for="line_height"><img src="assets/img/line-height.png" width="20" height="20"/>&nbsp;&nbsp;Line height</label>
+        </div>
+        <div class="right">
+          <button class="ico-remove-btn" [routerLink]="['/decreaseHeight']" ></button>
+          <label class="adjust-value">1.5x</label>
+          <button class="ico-add-btn" [routerLink]="['/increaseHeight']" ></button>    
+        </div>
+        <br><br>
+        <div id="columns-control" class="parent">
+            <div class="left">
+              <label class="label-height-wrapper" for="columns"><img src="assets/img/columns.png" width="20" height="20"/>&nbsp;&nbsp;Columns</label>
+            </div>
+            <div class="right">
+              <button class="ico-remove-btn" [routerLink]="['/decreaseColumns']" ></button>
+              <label class="adjust-value">1&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <button class="ico-add-btn" [routerLink]="['/increaseColumns']" ></button>    
+            </div>
+        </div>
+    </div>
+    
+    </form>
+  </div> 
+ 
+</div>
+
+<router-outlet></router-outlet>

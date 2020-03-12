@@ -1,0 +1,80 @@
+    
+    <div id="preloader">
+        <div id="status">
+            <p class="center-text">
+                Loading the content...
+                <em>Loading depends on your connection speed!</em>
+            </p>
+        </div>
+    </div>
+            
+    <div class="all-elements">
+        <div class="image">
+        <img src="assets/img/converter-component.png">
+        </div>
+        <h1>USFM Online Converter</h1>
+        <div class="content">
+            <div class="one-half-responsive full-bottom">
+                <h2>
+                    Enter a repository link to get started or search Bible in Every Language for a curated list of projects.
+                </h2>  
+                <br>  
+                <p class="error" *ngIf="!validRepo">
+                    <img src="assets/img/error.png" width="15" height="15">
+                    The repository link entered is invalid.</p>            
+            </div>
+            <div class="one-half-responsive last-column full-bottom">
+            
+             <form [formGroup]="angForm" novalidate>
+                <h4>Repository Link</h4> 
+                <input type="text" id="url" formControlName="url" class="input-form-control" name="company-name" placeholder="Type repository name here"> 
+                <h5>We support links from both WACS and DCS.</h5>
+                <br>
+                <button class="btn-load-repo" type="button" (click)="validateRepoLink($event)">Load Repository</button>
+             </form>
+            
+             <div *ngIf="angForm.controls['url'].invalid && (angForm.controls['url'].dirty || angForm.controls['url'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['url'].errors.required">
+                Name is required.
+              </div>
+            </div>
+
+            </div>   
+        </div>
+
+    </div>
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

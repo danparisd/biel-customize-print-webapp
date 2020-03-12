@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DownloadComponent } from './download.component';
+import { FormatOptionsComponent } from './format-options.component';
 
-describe('DownloadComponent', () => {
-  let component: DownloadComponent;
-  let fixture: ComponentFixture<DownloadComponent>;
+describe('FormatOptionsComponent', () => {
+  let component: FormatOptionsComponent;
+  let fixture: ComponentFixture<FormatOptionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DownloadComponent ]
+      declarations: [ FormatOptionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DownloadComponent);
+    fixture = TestBed.createComponent(FormatOptionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

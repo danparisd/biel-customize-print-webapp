@@ -1,0 +1,38 @@
+<div class="all-elements">
+    <br><br><br>
+
+    <div class="content-heading">
+        <h5>Step 3</h5>
+        <h1>Name your File</h1>
+    </div>
+
+    <form [formGroup]="fileForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="line-height-parent" id="line-height-parent">
+            <div class="left">
+                <p class="error" *ngIf="!validFile">
+                    <img src="assets/img/error.png" width="15" height="15"> The filename entered is empty or invalid.</p>
+                <h4>File Name</h4>
+                <div formGroupName="fileData" novalidate>
+                    <div class="input-container">
+                        <input formControlName="filename" type="text" class="input-form-control" placeholder="enter filename" />
+                        <i class="icon" id="filetype">.PDF</i>
+                    </div>
+                    <br>
+                    <div style="height:200px;"></div>
+                    <div class="button-parent" id="button-parent">
+                        <button class="btn-prev" type="button" [routerLink]="['/format-options']">&nbsp;</button>
+                        <button class="btn-next" type="submit">Download</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <div class="progress-parent" id="progress-parent">
+        <h4>Download Deuteronomy</h4>
+        <img src="assets/img/progress-bar-3.png" width="70%" height="70%" />
+    </div>
+
+</div>

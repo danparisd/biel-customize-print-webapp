@@ -1,0 +1,58 @@
+<div class="all-elements">
+    <br><br><br>
+
+    <div class="content-heading">
+        <div class="breadcrumb"></div>
+        <h5>Step 2</h5>
+        <h1>Format Options</h1>
+
+    </div>
+
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="line-height-parent" id="line-height-parent">
+            <div class="left">
+                <label class="label-height-wrapper" for="line_height"><img src="assets/img/line-height.png" width="20" height="20"/>&nbsp;&nbsp;Line height</label>
+            </div>
+            <div class="right" style="display: inline-flex;">
+                <div>
+                    <button type="button" class="ico-remove-btn" (click)="decrementHeight()"></button>
+                </div>
+                <div class="adjust-value">{{height}}</div>
+                <div>
+                    <button type="button" class="ico-add-btn" (click)="incrementHeight()"></button>
+                </div>
+            </div>
+            <br><br><br>
+        </div>
+
+
+        <div class="columns-parent" id="columns-parent">
+            <div class="left">
+                <label class="label-columns-wrapper" for="columns"><img src="assets/img/columns.png" width="20" height="20"/>&nbsp;&nbsp;Columns</label>
+            </div>
+            <div class="right" style="display: inline-flex;">
+                <div>
+                    <button type="button" class="ico-remove-btn" (click)="decrementColumns()" [class.button-disabled]></button>
+                </div>
+                <div class="adjust-value">{{columns}}</div>
+                <div>
+                    <button type="button" class="ico-add-btn" (click)="incrementColumns()"></button>
+                </div>
+            </div>
+            <br><br><br>
+        </div>
+
+        <div class="button-parent" id="button-parent">
+            <button class="btn-prev" type="button" [routerLink]="['/file-selection']">&nbsp;</button>
+            <button class="btn-next" type="submit">Next: Naming</button>
+        </div>
+
+        <div class="progress-parent" id="progress-parent">
+            <h4>Download Deuteronomy</h4>
+            <img src="assets/img/progress-bar-2.png" width="70%" height="70%" />
+        </div>
+
+        <input type="hidden" name="fileType" id="fileType" [formControl]="fileType">
+    </form>
+</div>

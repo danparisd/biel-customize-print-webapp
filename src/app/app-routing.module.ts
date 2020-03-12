@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DownloadComponent } from './download/download.component';
-import { SummaryComponent } from './summary/summary.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './components/home/home.component';
+import { FileSelectionComponent } from './components/file-selection/file-selection.component';
+import { FormatOptionsComponent } from './components/format-options/format-options.component';
+import { FilenameComponent } from './components/filename/filename.component';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'download', component: DownloadComponent},
-  { path: 'summary', component: SummaryComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, data: { breadcrumb: 'Home'} },
+  { path: 'file-selection', component: FileSelectionComponent, data: { breadcrumb: 'File Selection'}},
+  { path: 'format-options', component: FormatOptionsComponent, data: { breadcrumb: ''}},
+  { path: 'filename', component: FilenameComponent, data: { breadcrumb: ''}},
+  { path: 'result', component: ResultComponent, data: { breadcrumb: ''}},
   { path: 'moreBooks', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'libreOffice', redirectTo: '/dashboard', pathMatch: 'full' }
 ];

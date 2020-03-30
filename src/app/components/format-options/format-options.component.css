@@ -14,12 +14,12 @@ Date:        March 04, 2020
 
 /* 1. General */
 
-.disabled {
-    display: none;
-}
-
 body {
     background-color: #FFFFFF;
+}
+
+.disabled {
+    display: none;
 }
 
 .breadcrumb {
@@ -98,95 +98,16 @@ img {
     width: 32%;
 }
 
-
-/*Content Heading*/
-
-
-/*///////////////*/
-
-.content-heading {
-    margin-top: 60px;
-    padding-bottom: 50px;
-    text-align: center;
-    z-index: 60;
-    position: relative;
-    border-bottom: 2px solid #DDDDDD;
-}
-
-.content-heading h4 {
-    color: #FFFFFF;
-    position: absolute;
-    z-index: 20;
-    text-transform: uppercase;
-    margin-top: 37px;
-    padding-left: 30px;
-    pointer-events: none;
-    font-weight: 800;
-}
-
-.content-heading {
-    height: 80px;
-}
-
-.content-heading p {
-    color: #FFFFFF;
-    position: absolute;
-    z-index: 98;
-    margin-top: 58px;
-    padding-left: 30px;
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.content-heading .overlay {
-    z-index: 9;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.content-heading a {
-    font-size: 20px;
-    position: absolute;
-    color: #1f1f1f!important;
-    right: 31px;
-    z-index: 98;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    background-color: #FFFFFF;
-    border-radius: 50px;
-    margin-top: 35px;
-}
-
-.content-heading img {
-    min-height: 120px;
-    width: 100%;
-    display: block;
-    position: relative;
-    z-index: 2;
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease;
-}
-
-.content-heading img:hover {
-    filter: blur(3px);
-    -webkit-filter: blur(3px);
-    -webkit-transition: all 300ms ease;
-    -moz-transition: all 300ms ease;
-    -ms-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease;
-}
-
 .adjust-value {
     width: 40px;
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
     font-size: 20px;
     font-weight: 700;
+}
+
+.form-parent {
+    width: 100%;
 }
 
 .input-form-control {
@@ -235,6 +156,7 @@ img {
 .btn-next {
     color: #ffffff;
     width: 55%;
+    max-width: 200px;
     padding: 8px 10px 8px 5px;
     background-size: 25px auto;
     border-radius: 5px;
@@ -244,7 +166,7 @@ img {
     border-radius: 4px;
     opacity: 1;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
@@ -253,6 +175,7 @@ img {
 .btn-prev {
     color: #1D73EF;
     width: 18%;
+    max-width: 80px;
     padding: 8px 10px 8px 5px;
     background-size: 25px auto;
     border-radius: 5px;
@@ -262,7 +185,7 @@ img {
     border-radius: 4px;
     opacity: 1;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
@@ -273,6 +196,7 @@ img {
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
     font-weight: 200;
+    display: inline-table;
 }
 
 .label-columns-wrapper {
@@ -280,67 +204,7 @@ img {
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
     font-weight: 200;
-}
-
-.label-usfm-wrapper {
-    color: #565656;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 100;
-}
-
-.label-recommended {
-    color: #015AD9;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.pdf-sub-text {
-    margin-left: 50px;
-    margin-right: 30px;
-    margin-top: 15px;
-    color: #565656;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-}
-
-.doc-sub-text {
-    display: none;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 15px;
-    color: #565656;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 200;
-    display: none;
-}
-
-.usfm-sub-text {
-    display: none;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 15px;
-    color: #565656;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 200;
-}
-
-.pdf-parent {
-    background-color: #FFFFFF;
-    font-size: .8em;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #c3c3c3;
-}
-
-.doc-parent {
-    background-color: #FFFFFF;
-    font-size: .8em;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #c3c3c3;
+    display: inline-table;
 }
 
 .line-height-parent {
@@ -348,6 +212,8 @@ img {
     font-size: .8em;
     padding-bottom: 20px;
     border-bottom: 2px solid #DDDDDD;
+    max-width: 411px;
+    margin: auto;
 }
 
 .columns-parent {
@@ -355,19 +221,12 @@ img {
     font-size: .8em;
     padding-bottom: 20px;
     border-bottom: 2px solid #DDDDDD;
-}
-
-.button-parent2 {
-    margin-top: 30px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #c3c3c3;
-    text-align: center;
+    max-width: 411px;
+    margin: auto;
 }
 
 .button-parent {
-    margin-top: 60px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #c3c3c3;
+    border-bottom: 2px solid #c3c3c3;
     text-align: center;
 }
 
@@ -388,4 +247,46 @@ img {
     padding-top: 20px;
     float: right;
     background-color: #FFFFFF;
+}
+
+.title-section {
+    height: 77px;
+    border-bottom: 2px solid #DDDDDD;
+}
+
+.heading {
+    margin-top: 60px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    color: #1A1A1A;
+    text-align: center;
+    font-weight: 700;
+}
+
+.subheading {
+    margin-top: 8px;
+    font-weight: 500;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 24px;
+    color: #1A1A1A;
+    text-align: center;
+}
+
+.container {
+    display: table;
+}
+
+.element {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

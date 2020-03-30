@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-file-selection',
@@ -9,16 +9,24 @@ import { Router } from '@angular/router';
 })
 export class FileSelectionComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  repoUrl: string;
+  bookName: string;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   fileType = new FormControl('');
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      const err = params['err'];
+      this.repoUrl = params['repo_url'];
+      this.bookName = params['book_id'];
+    });
     this.handlePdfClick();
   }
 
   onSubmit() {
-    this.router.navigate(['format-options'], { queryParams: { fileType: this.fileType.value } });
+    this.router.navigate(['format-options'],{queryParams: {repo_url:this.repoUrl,book_id:this.bookName,fileType: this.fileType.value } });
   }
 
   handlePdfClick() {
@@ -40,6 +48,9 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('image-pdf').innerHTML = '<img src="/assets/img/pdf_selected.png" width="20" height="24"/>';
     document.getElementById('image-doc').innerHTML = '<img src="/assets/img/file-word.png"/>';
     document.getElementById('image-usfm').innerHTML = '<img src="/assets/img/usfm.png" width="20" height="15"/>';
+    document.getElementById('pdf_checked').innerHTML = '<img src="assets/img/radio_checked.png" width="20" height="20"/>';
+    document.getElementById('doc_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
+    document.getElementById('usfm_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
     document.getElementById('label-pdf-text').style.color = '#015AD9';
     document.getElementById('label-pdf-text').style.fontWeight = '700';
     document.getElementById('label-doc-text').style.color = '#565656';
@@ -68,6 +79,9 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('image-pdf').innerHTML = '<img src="/assets/img/pdf.png" width="20" height="24"/>';
     document.getElementById('image-doc').innerHTML = '<img src="/assets/img/file-word-selected.png" />';
     document.getElementById('image-usfm').innerHTML = '<img src="/assets/img/usfm.png" width="20" height="15"/>';
+    document.getElementById('pdf_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
+    document.getElementById('doc_checked').innerHTML = '<img src="assets/img/radio_checked.png" width="20" height="20"/>';
+    document.getElementById('usfm_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
     document.getElementById('label-doc-text').style.color = '#015AD9';
     document.getElementById('label-doc-text').style.fontWeight = '700';
     document.getElementById('label-pdf-text').style.color = '#565656';
@@ -96,6 +110,9 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('image-pdf').innerHTML = '<img src="/assets/img/pdf.png" width="20" height="24"/>';
     document.getElementById('image-doc').innerHTML = '<img src="/assets/img/file-word.png" />';
     document.getElementById('image-usfm').innerHTML = '<img src="/assets/img/usfm_selected.png" width="20" height="15"/>';
+    document.getElementById('pdf_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
+    document.getElementById('doc_checked').innerHTML = '<img src="assets/img/radio_unchecked.png" width="20" height="20"/>';
+    document.getElementById('usfm_checked').innerHTML = '<img src="assets/img/radio_checked.png" width="20" height="20"/>';
     document.getElementById('label-usfm-text').style.color = '#015AD9';
     document.getElementById('label-usfm-text').style.fontWeight = '700';
     document.getElementById('label-pdf-text').style.color = '#565656';

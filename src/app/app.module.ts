@@ -11,8 +11,10 @@ import { FormatOptionsComponent } from './components/format-options/format-optio
 import { FilenameComponent } from './components/filename/filename.component';
 import { ResultComponent } from './components/result/result.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-import { ConverterService } from 'src/app/services/converter.service'; 
+import { FileService } from 'src/app/services/file.service'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FilenameComponent,
     ResultComponent,
     BreadcrumbComponent,
-    ResultComponent
+    ResultComponent,
+    TestComponent
   ], 
   imports: [
     BrowserModule,
@@ -33,9 +36,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ], 
-  providers: [ConverterService],
+  providers: [FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

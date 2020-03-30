@@ -1,33 +1,37 @@
-<div class="all-elements">
+<br>
+<br><br>
+<div class="title-section">
+    <div class="heading">Step 1</div>
+    <div class="subheading">Choose a File Type</div>
+</div>
 
-    <br><br><br>
-    <div class="content-heading" style="padding-left: 0px;">
-        <!--  Breadcrumbs will be implemented when previous pages are active -->
-        <!--  <app-breadcrumb name="here" url="index.html"></app-breadcrumb> -->
-        <h5>Step 1</h5>
-        <h1>Choose a File Type</h1>
-    </div>
-
+<div class="form-parent">
     <form #myForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="pdf-parent" id="pdf-parent" (click)="handlePdfClick()">
             <div class="left" id="pdf-left">
-                <label id="label-wrapper" class="label-wrapper" for="pdf"><div id="image-pdf" style="display:inline;"></div><div id="label-pdf-text" style="display:inline;font-size:16px;">&nbsp;&nbsp;PDF</div></label>
+                <label id="label-wrapper" class="container" for="pdf">
+                    <div id="image-pdf" class="element"></div>
+                    <div id="label-pdf-text" class="element" style="padding-bottom: 5px;">&nbsp;&nbsp;PDF</div>
+                </label>
             </div>
             <div class="right" id="pdf-right">
                 <label class="label-recommended">Recommended</label>
                 <input class="radio_item" id="pdf" type="radio" value="pdf" name="fileType" (click)="handlePdfClick()" [formControl]="fileType">
-                <label class="label_item" for="radio1"> <img src="assets/img/radio_checked.png" width="20" height="20"> </label>
+                <label id="pdf_checked" class="label_item" for="radio1"></label>
             </div>
             <div id="pdf-sub-text" class="pdf-sub-text"><br><br><br>PDF's can be easily read on most devices and shared with others. They cannot be edited.</div>
         </div>
 
         <div class="doc-parent" id="doc-parent" (click)="handleDocClick()">
             <div class="left" id="doc-left">
-                <label class="label-wrapper" for="doc"><div id="image-doc" style="display:inline;"></div><div id="label-doc-text" style="display:inline;">&nbsp;&nbsp;Docx</div></label>
+                <label class="container" for="doc">
+                    <div id="image-doc" class="element"></div>
+                    <div id="label-doc-text" class="element" style="padding-bottom: 5px;">&nbsp;&nbsp;Docx</div>
+                </label>
             </div>
             <div class="right" id="doc-right">
                 <input class="radio_item" id="doc" type="radio" value="doc" name="fileType" (click)="handleDocClick()" [formControl]="fileType">
-                <label class="label_item" for="radio1"> <img src="assets/img/radio_checked.png" width="20" height="20"> </label>
+                <label id="doc_checked" class="label_item" for="radio1"></label>
             </div>
             <br><br><br>
             <div id="doc-sub-text" class="doc-sub-text">Useful if you need to make edits to the translation. Docx files may require software to open.</div>
@@ -35,26 +39,28 @@
 
         <div class="usfm-parent" id="usfm-parent" (click)="handleUsfmClick()">
             <div class="left" id="usfm-left">
-                <label class="label-wrapper" for="usfm"><div id="image-usfm" style="display:inline;"></div><div id="label-usfm-text" style="display:inline;">&nbsp;&nbsp;USFM</div></label>
+                <label class="container" for="usfm">
+                    <div id="image-usfm" class="element"></div>
+                    <div id="label-usfm-text" class="element" style="padding-bottom: 5px;">&nbsp;&nbsp;USFM</div>
+                </label>
             </div>
             <div class="right" id="usfm-right">
                 <input class="radio_item" id="usfm" type="radio" value="usfm" name="fileType" (click)="handleUsfmClick()" [formControl]="fileType">
-                <label class="label_item" for="radio1"> <img src="assets/img/radio_checked.png" width="20" height="20"> </label>
+                <label id="usfm_checked" class="label_item" for="radio1"></label>
             </div>
             <br><br><br>
             <div id="usfm-sub-text" class="usfm-sub-text">USFM files are useful for translators who want to start a new oral or written translation.</div>
         </div>
 
-        <div class="button-parent" id="button-parent">
-            <button id="button1" class="btn-prev" type="button" disabled>&nbsp;</button>
-            <button id="button2" class="btn-next" type="submit">Next: Format</button>
+        <div id="footer">
+            <div class="button-parent" id="button-parent">
+                <button id="button1" class="btn-prev" type="button" disabled>&nbsp;</button>
+                <button id="button2" class="btn-next" type="submit">Next: Format</button>
+            </div>
+            <div class="progress-parent" id="progress-parent">
+                <h4>Download {{bookName}}</h4>
+                <img src="assets/img/progress-bar-1.png" style="max-width:200px;height:auto;" />
+            </div>
         </div>
-
     </form>
-
-    <div class="progress-parent" id="progress-parent">
-        <h4>Download Deuteronomy</h4>
-        <img src="assets/img/progress-bar-1.png" width="70%" height="70%" />
-    </div>
-
 </div>

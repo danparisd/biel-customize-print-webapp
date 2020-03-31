@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
             );
           });
           resolve();
-          this.router.navigateByUrl('file-selection?repo_url=' + this.repoUrl + '&book_id=' + this.bookName);
+          this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);
         },
           err => {
             //CORS Policy Origin blocks this causing error, Rueben will modify API to take in this value and return a true or false

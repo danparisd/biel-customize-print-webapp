@@ -96,12 +96,12 @@ export class HomeComponent implements OnInit {
             reject(err);
             if (err.status == 0) { 
               //this.router.navigateByUrl('home?err=true&repo_url=' + this.repoUrl + '&book_id=' + this.bookName); //this.validRepo=false;
-              this.router.navigateByUrl('file-selection?repo_url=' + this.repoUrl + '&book_id=' + this.bookName);
+              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);
             } else {
               this.validRepo = false;
               //temp disable validation until Rueben gets his endpoint built that will return true if url is valid.  Result of CORS issue
               //this.router.navigateByUrl('home?err=true&repo_url='+this.repoUrl+'&book_id='+this.bookName); //this.validRepo=false;
-              this.router.navigateByUrl('file-selection?repo_url=' + this.repoUrl + '&book_id=' + this.bookName);           
+              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);           
             }            
           }
         );

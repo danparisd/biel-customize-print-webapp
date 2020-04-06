@@ -30,12 +30,7 @@ export class Repository {
 })
 export class HomeComponent implements OnInit {
 
-
-  //Dummy Test - returns data so valid
-  api: string = "https://jsonplaceholder.typicode.com/posts";
-  //WCS api: string = 'https://scripturerenderingpipelinedev.azurewebsites.net/api/RenderDoc?url=https://content.bibletranslationtools.org/rbnswartz/en_ulb';
-  //DCS api: string = 'https://git.door43.org/user/repoid';
-  //https:%2F%2Fgit.door43.org%2Fdanieldane003%2Fceb_obs_text_obs_l3&book_id=obs
+  testUrl = 'https://git.door43.org/door43-catalog/ceb_obs';
   data = [];
   repoForm: FormGroup;
   validRepo: boolean = true;
@@ -55,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       const err = params['err'];
       this.repoUrl = params['repo_url'];
-      this.bookName = params['book_id'];
+      this.bookName = params['book_name'];
 
       if (this.repoUrl == null) {
         this.repoUrl = '';
@@ -75,8 +70,10 @@ export class HomeComponent implements OnInit {
 
   validateRepoLink() {     
       this.readRepositoryLink();
+      if (this.repoUrl.length==0) {
+        return;
+      }
       const promise = new Promise((resolve, reject) => {
-      console.log('apiUrl='+this.repoUrl); 
       this.http
         .get<StatusCheck[]>(this.repoUrl)
         .toPromise()
@@ -89,23 +86,19 @@ export class HomeComponent implements OnInit {
             );
           });
           resolve();
-          this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);
+          this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_name=' + this.bookName);
         },
-          err => {
-            //CORS Policy Origin blocks this causing error, Rueben will modify API to take in this value and return a true or false
+          err => {            
             reject(err);
-            if (err.status == 0) { 
-              //this.router.navigateByUrl('home?err=true&repo_url=' + this.repoUrl + '&book_id=' + this.bookName); //this.validRepo=false;
-              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);
+            if (err.status != 200) { 
+              this.router.navigateByUrl('home?err=true&repo_url=' + this.repoUrl + '&book_name=' + this.bookName); 
+              this.validRepo=false;
             } else {
-              this.validRepo = false;
-              //temp disable validation until Rueben gets his endpoint built that will return true if url is valid.  Result of CORS issue
-              //this.router.navigateByUrl('home?err=true&repo_url='+this.repoUrl+'&book_id='+this.bookName); //this.validRepo=false;
-              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_id=' + this.bookName);           
+              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_name=' + this.bookName);           
             }            
           }
         );
-    });
+    }); 
     return promise;
   }
 

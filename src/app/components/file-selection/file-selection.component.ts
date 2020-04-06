@@ -19,14 +19,14 @@ export class FileSelectionComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       const err = params['err'];
-      this.repoUrl = params['repo_url'];
-      this.bookName = params['book_id'];
+      this.repoUrl = params['url'];
+      this.bookName = params['book_name'];
     });
     this.handlePdfClick();
   }
 
   onSubmit() {
-    this.router.navigate(['format-options'],{queryParams: {repo_url:this.repoUrl,book_id:this.bookName,fileType: this.fileType.value } });
+    this.router.navigate(['format-options'],{queryParams: {url:this.repoUrl,book_name:this.bookName,file_type: this.fileType.value } });
   }
 
   handlePdfClick() {
@@ -88,7 +88,7 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('label-pdf-text').style.fontWeight = '400';
     document.getElementById('label-usfm-text').style.color = '#565656';
     document.getElementById('label-usfm-text').style.fontWeight = '400';
-    this.fileType.setValue('doc');
+    this.fileType.setValue('docx');
   }
 
   handleUsfmClick() {

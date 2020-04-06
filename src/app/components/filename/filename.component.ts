@@ -23,6 +23,7 @@ export class FilenameComponent implements OnInit {
 
   fileForm: FormGroup;
   fileType: string;
+  fileName: string;
   height: string;
   columns: string;
   repoUrl: string;
@@ -34,17 +35,6 @@ export class FilenameComponent implements OnInit {
     this.fileForm = this.createFormGroup(); 
    }
    
-   API_URL = "https//scripturerenderingpipelinedev.azurewebsites.net/api/RenderDoc?url="+this.repoUrl;   
-
-   download() {
-    console.log('downloading...');
-    
-    this.fileService.downloadFile().subscribe(response => {
-      window.open(this.API_URL);
-		}), error => console.log('Error downloading the file'),
-                 () => console.info('File downloaded successfully');                
-  }
-
    createFormGroup() {
     return new FormGroup({
       fileData: new FormGroup({
@@ -68,45 +58,45 @@ export class FilenameComponent implements OnInit {
   }
 
   onSubmit() {    
-    // Make sure to create a deep copy of the form-model
     
     const result: File = Object.assign({}, this.fileForm.value);
     result.fileData = Object.assign({}, result.fileData);
     result.fileData.filetype=this.fileType;
 
     // Do useful stuff with the gathered data
-    const myFile = result.fileData.filename + '.' + result.fileData.filetype;
+    const myFile = result.fileData.filename + '.' + result.fileData.filetype; 
+    const API_URL = "https://scripturerenderingpipelinedev.azurewebsites.net/api/RenderDoc?url="+this.repoUrl+"&file_type=&book_name="+this.bookName+"&filename="+myFile;   
     
+    console.log('>'+result.fileData.filename);
     if (result.fileData.filename==''||result.fileData.filename==null) { 
       this.isValid=false;      
-    } else { 
-      this.isValid = /^[\w,\s-]+\.[A-Za-z0-9]{3}$/i.test(myFile);
-    }
-    console.log(myFile+' validity is '+this.isValid);
-
+    } 
+    
     if (this.isValid) {
-      this.download();
-      //add code to wait for above line to complete before routing to 'result'
-      this.router.navigate(['result?repo_url='+this.repoUrl+'&book_id='+this.bookName],{queryParams: { file:myFile }});
+      window.open(API_URL);
+      this.router.navigate(['result'], { queryParams: {url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile } });
     } else {
-      this.router.navigateByUrl('filename?repo_url='+this.repoUrl+'&book_id='+this.bookName+'&err=true&fileType='+this.fileType);
+      this.router.navigate(['filename'], { queryParams: {err: 'invalid', url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile } });
     }
   }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.fileType = params['fileType'];
-      this.repoUrl = params['repo_url'];
-      this.bookName = params['book_id'];
-
+      this.fileType = params['file_type'];
+      this.repoUrl = params['url'];
+      this.bookName = params['book_name'];
+      this.height = params['height'];
+      this.columns = params['columns']
+      this.fileName = params['file_name'];
+      this.isValid = true;
       const err = params['err'];
-      if (err=='true') {
+      if (err=='invalid') {
         this.validFile=false;
       }  
      
       if (this.fileType=='pdf') {
         document.getElementById('filetype').innerHTML = '.PDF';    
-      } else if (this.fileType=='doc') {
+      } else if (this.fileType=='docx') {
         document.getElementById('filetype').innerHTML = '.DOCX';    
       } else {
         document.getElementById('filetype').innerHTML = '.USFM'; 

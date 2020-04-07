@@ -22,7 +22,7 @@ export class FileSelectionComponent implements OnInit {
       this.repoUrl = params['url'];
       this.bookName = params['book_name'];
     });
-    this.handlePdfClick();
+    this.handleDocClick();
   }
 
   onSubmit() {

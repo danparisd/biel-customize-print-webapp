@@ -91,7 +91,8 @@ export class HomeComponent implements OnInit {
           err => {            
             reject(err);
             if (err.status != 200) { 
-              this.router.navigateByUrl('home?err=true&repo_url=' + this.repoUrl + '&book_name=' + this.bookName); 
+              this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_name=' + this.bookName);
+              //this.router.navigateByUrl('home?err=true&repo_url=' + this.repoUrl + '&book_name=' + this.bookName); 
               this.validRepo=false;
             } else {
               this.router.navigateByUrl('file-selection?url=' + this.repoUrl + '&book_name=' + this.bookName);           

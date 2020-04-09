@@ -26,7 +26,7 @@
     </div>
     <div id="footer">
         <div class="button-parent" id="button-parent">
-            <button class="btn-prev" type="button" [routerLink]="['/format-options']">&nbsp;</button>
+            <button class="btn-prev" type="button" (click)="goBack()">&nbsp;</button>
             <button class="btn-next" type="submit">Download</button>
         </div>
         <div class="progress-parent" id="progress-parent">

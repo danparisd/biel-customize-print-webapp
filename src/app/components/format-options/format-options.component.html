@@ -42,12 +42,48 @@
                 </div>
                 <br><br><br>
             </div>
-            <input type="hidden" name="fileType" id="fileType" [formControl]="fileType">
+
+            <div class="verses-parent" id="verses-parent">
+                <div class="left">
+                    <label class="label-verses-wrapper" for="verses">
+                        <div class="container"><img src="assets/img/bookmark.svg" /></div>
+                        <div class="element">Verse Break</div>
+                    </label>
+                </div>
+                <div class="right" style="display: inline-flex;">
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="verses" (click)="setVersesBreak()" >
+                            <span class="slider round"></span>
+                          </label>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+
+            <div class="chapters-parent" id="chapters-parent">
+                <div class="left">
+                    <label class="label-chapters-wrapper" for="chapters">
+                        <div class="container"><img src="assets/img/book.svg" /></div>
+                        <div class="element">Chapter Break</div>
+                    </label>
+                </div>
+                <div class="right" style="display: inline-flex;">
+                    <div>
+                        <label class="switch">
+                            <input type="checkbox" id="chapters" (click)="setChaptersBreak()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <br><br><br>
+            </div>
+
         </div>
     </div>
     <div id="footer">
         <div class="button-parent" id="button-parent">
-            <button class="btn-prev" type="button" [routerLink]="['/file-selection']">&nbsp;</button>
+            <button class="btn-prev" type="button" (click)="goBack()">&nbsp;</button>
             <button class="btn-next" type="submit">Next: Naming</button>
         </div>
         <div class="progress-parent" id="progress-parent">

@@ -15,7 +15,7 @@ import { FileService } from 'src/app/services/file.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TestComponent } from './components/test/test.component';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,

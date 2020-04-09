@@ -16,7 +16,7 @@
             </div>
             <div class="right" id="pdf-right">
                 <label class="label-recommended">Recommended</label>
-                <input class="radio_item" id="pdf" type="radio" value="pdf" name="fileType" (click)="handlePdfClick()" [formControl]="fileType" disabled>
+                <input class="radio_item" id="pdf" type="radio" value="pdf" name="fileType" disabled>
                 <label id="pdf_checked" class="label_item" for="radio1"></label>
             </div>
             <div id="pdf-sub-text" class="pdf-sub-text"><br><br><br>PDF's can be easily read on most devices and shared with others. They cannot be edited.</div>
@@ -30,7 +30,7 @@
                 </label>
             </div>
             <div class="right" id="doc-right">
-                <input class="radio_item" id="doc" type="radio" value="docx" name="fileType" (click)="handleDocClick()" [formControl]="fileType">
+                <input class="radio_item" id="doc" type="radio" value="docx" name="fileType" (click)="handleDocClick()">
                 <label id="doc_checked" class="label_item" for="radio1"></label>
             </div>
             <br><br><br>
@@ -45,7 +45,7 @@
                 </label>
             </div>
             <div class="right" id="usfm-right">
-                <input class="radio_item" id="usfm" type="radio" value="usfm" name="fileType" (click)="handleUsfmClick()" [formControl]="fileType">
+                <input class="radio_item" id="usfm" type="radio" value="usfm" name="fileType" (click)="handleUsfmClick()">
                 <label id="usfm_checked" class="label_item" for="radio1"></label>
             </div>
             <br><br><br>

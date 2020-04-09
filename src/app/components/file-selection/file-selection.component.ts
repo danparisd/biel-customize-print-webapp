@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-file-selection',
@@ -11,22 +12,38 @@ export class FileSelectionComponent implements OnInit {
 
   repoUrl: string;
   bookName: string;
-
+  fileType: string;
+  height: number = 1;
+  columns: number = 1;
+  chapters:  string;
+  verses:  string; 
+  
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  fileType = new FormControl('');
+  //fileType = new FormControl('');
+  //fileType = new FormControl('');
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       const err = params['err'];
       this.repoUrl = params['url'];
       this.bookName = params['book_name'];
+      this.fileType = params['file_type'];
+      this.height = params['height'];
+      this.columns = params['columns'];
+      this.verses = params['verses'];
+      this.chapters = params['chapters'];
+
+      //if (isNullOrUndefined(this.fileType.value)) {
+       //this.fileType.value='docx'; 
+     //} 
     });
     this.handleDocClick();
   }
 
   onSubmit() {
-    this.router.navigate(['format-options'],{queryParams: {url:this.repoUrl,book_name:this.bookName,file_type: this.fileType.value } });
+    console.log('filetype='+this.fileType);
+    this.router.navigate(['format-options'],{queryParams: {url:this.repoUrl,book_name:this.bookName,file_type: this.fileType,height: this.height, columns: this.columns, verses: this.verses, chapters: this.chapters  } });
   }
 
   handlePdfClick() {
@@ -57,7 +74,7 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('label-doc-text').style.fontWeight = '400';
     document.getElementById('label-usfm-text').style.color = '#565656';
     document.getElementById('label-usfm-text').style.fontWeight = '400';
-    this.fileType.setValue('pdf');
+    this.fileType='pdf';
   }
 
   handleDocClick() {
@@ -88,7 +105,7 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('label-pdf-text').style.fontWeight = '400';
     document.getElementById('label-usfm-text').style.color = '#565656';
     document.getElementById('label-usfm-text').style.fontWeight = '400';
-    this.fileType.setValue('docx');
+    this.fileType='docx';
   }
 
   handleUsfmClick() {
@@ -119,6 +136,6 @@ export class FileSelectionComponent implements OnInit {
     document.getElementById('label-pdf-text').style.fontWeight = '400';
     document.getElementById('label-doc-text').style.color = '#565656';
     document.getElementById('label-doc-text').style.fontWeight = '400';
-    this.fileType.setValue('usfm');
+    this.fileType='usfm';
   }
 }

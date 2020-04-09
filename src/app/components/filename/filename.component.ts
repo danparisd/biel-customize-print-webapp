@@ -28,6 +28,8 @@ export class FilenameComponent implements OnInit {
   columns: string;
   repoUrl: string;
   bookName: string;
+  verses: string;
+  chapters: string;
   isValid=true;
   validFile: boolean = true;
   
@@ -65,18 +67,17 @@ export class FilenameComponent implements OnInit {
 
     // Do useful stuff with the gathered data
     const myFile = result.fileData.filename + '.' + result.fileData.filetype; 
-    const API_URL = "https://scripturerenderingpipelinedev.azurewebsites.net/api/RenderDoc?url="+this.repoUrl+"&file_type=&book_name="+this.bookName+"&filename="+myFile;   
+    const API_URL = "https://scripturerenderingpipelinedev.azurewebsites.net/api/RenderDoc?url="+this.repoUrl+"&file_type=&book_name="+this.bookName+"&filename="+myFile+"&verses="+this.verses+"&chapters="+this.chapters;   
     
-    console.log('>'+result.fileData.filename);
     if (result.fileData.filename==''||result.fileData.filename==null) { 
       this.isValid=false;      
     } 
     
     if (this.isValid) {
       window.open(API_URL);
-      this.router.navigate(['result'], { queryParams: {url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile } });
+      this.router.navigate(['result'], { queryParams: {url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile, verses: this.verses, chapters: this.chapters } });
     } else {
-      this.router.navigate(['filename'], { queryParams: {err: 'invalid', url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile } });
+      this.router.navigate(['filename'], { queryParams: {err: 'invalid', url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: result.fileData.filename, verses: this.verses, chapters: this.chapters } });
     }
   }
 
@@ -86,13 +87,16 @@ export class FilenameComponent implements OnInit {
       this.repoUrl = params['url'];
       this.bookName = params['book_name'];
       this.height = params['height'];
-      this.columns = params['columns']
+      this.columns = params['columns'];
       this.fileName = params['file_name'];
+      this.verses = params['verses'];
+      this.chapters = params['chapters'];
       this.isValid = true;
       const err = params['err'];
       if (err=='invalid') {
         this.validFile=false;
       }  
+      console.log('fn='+this.fileName);
      
       if (this.fileType=='pdf') {
         document.getElementById('filetype').innerHTML = '.PDF';    
@@ -101,9 +105,15 @@ export class FilenameComponent implements OnInit {
       } else {
         document.getElementById('filetype').innerHTML = '.USFM'; 
       }
+
     })
-    
-    
+  }
+
+  goBack() {
+    const result: File = Object.assign({}, this.fileForm.value);
+    result.fileData = Object.assign({}, result.fileData);
+    const myFile = result.fileData.filename + '.' + this.fileType; 
+    this.router.navigate(['format-options'], { queryParams: {url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, height: this.height, columns: this.columns, file_name: myFile, verses: this.verses, chapters: this.chapters } });
   }
  
 }

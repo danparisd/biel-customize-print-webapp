@@ -7,7 +7,7 @@
 
 <div class="form-parent">
     <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="pdf-parent" id="pdf-parent" (click)="handlePdfClick()">
+        <div class="pdf-parent" id="pdf-parent">
             <div class="left" id="pdf-left">
                 <label id="label-wrapper" class="container" for="pdf">
                     <div id="image-pdf" class="element"></div>
@@ -54,7 +54,7 @@
 
         <div id="footer">
             <div class="button-parent" id="button-parent">
-                <button id="button1" class="btn-prev" type="button" disabled>&nbsp;</button>
+                <button id="button1" class="btn-prev" type="button" (click)="goBack()">&nbsp;</button>
                 <button id="button2" class="btn-next" type="submit">Next: Format</button>
             </div>
             <div class="progress-parent" id="progress-parent">

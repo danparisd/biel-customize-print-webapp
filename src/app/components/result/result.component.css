@@ -160,6 +160,8 @@ img {
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
+    height: 40px;
 }
 
 .button-parent {

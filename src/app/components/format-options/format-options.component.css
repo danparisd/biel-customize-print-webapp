@@ -139,6 +139,7 @@ img {
     margin-left: 10px;
     margin-bottom: 10px;
     width: 30px;
+    cursor: pointer;
 }
 
 .ico-remove-btn {
@@ -151,16 +152,20 @@ img {
     margin-right: 10px;
     margin-bottom: 10px;
     width: 30px;
+    cursor: pointer;
 }
 
 .btn-next {
     color: #ffffff;
     width: 55%;
     max-width: 200px;
-    padding: 8px 10px 8px 5px;
+    padding: 10px 20px 8px 0px;
     background-size: 25px auto;
     border-radius: 5px;
     background: url('/assets/img/next-format.svg') 5% 40% no-repeat #1D73EF;
+    background-position: left center;
+    background-origin: content-box, padding-box;
+    padding-left: 35px;
     box-shadow: 0px 2px 0px #00377C;
     border: 1px solid rgba(160, 158, 158, 0.102);
     border-radius: 4px;
@@ -170,6 +175,9 @@ img {
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
 }
 
 .btn-prev {
@@ -189,6 +197,8 @@ img {
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
+    height: 40px;
 }
 
 .label-height-wrapper {

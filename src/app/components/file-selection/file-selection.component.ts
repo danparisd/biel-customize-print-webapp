@@ -13,6 +13,7 @@ export class FileSelectionComponent implements OnInit {
   repoUrl: string;
   bookName: string;
   fileType: string;
+  fileName: string;
   height: number = 1;
   columns: number = 1;
   chapters:  string;
@@ -29,6 +30,7 @@ export class FileSelectionComponent implements OnInit {
       this.repoUrl = params['url'];
       this.bookName = params['book_name'];
       this.fileType = params['file_type'];
+      this.fileName = params['file_name'];
       this.height = params['height'];
       this.columns = params['columns'];
       this.verses = params['verses'];
@@ -39,6 +41,10 @@ export class FileSelectionComponent implements OnInit {
      //} 
     });
     this.handleDocClick();
+  }
+
+  goBack() {
+    this.router.navigate(['home'], { queryParams: {repo_url: this.repoUrl, book_name: this.bookName, file_type: this.fileType, file_name: this.fileName, height: this.height, columns: this.columns, verses: this.verses, chapters: this.chapters } });
   }
 
   onSubmit() {

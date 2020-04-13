@@ -193,13 +193,13 @@ img {
 
 .icon {
     width: 80px;
-    padding-top: 4px;
+    padding-top: 10px;
     border: 1px solid #1D73EF;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
     background: #CEE6FF;
     font-family: 'Noto Sans', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     color: #00377C;
@@ -308,16 +308,20 @@ img {
     opacity: 1;
     max-width: 500px;
     box-sizing: border-box;
+    height: 40px;
 }
 
 .btn-next {
     color: #ffffff;
     width: 68%;
     max-width: 200px;
-    padding: 8px 10px 8px 5px;
+    padding: 10px 30px 8px 20px;
     background-size: 25px auto;
     border-radius: 5px;
     background: url('/assets/img/download.png') 18% 40% no-repeat #1D73EF;
+    background-position: left center;
+    background-origin: content-box, padding-box;
+    padding-left: 45px;
     box-shadow: 0px 2px 0px #00377C;
     border: 1px solid rgba(160, 158, 158, 0.102);
     border-radius: 4px;
@@ -327,6 +331,9 @@ img {
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
 }
 
 .btn-prev {
@@ -346,12 +353,12 @@ img {
     margin-left: 10px;
     margin-top: 8px;
     margin-bottom: 30px;
+    cursor: pointer;
+    height: 40px;
 }
 
 .button-parent {
-    margin-top: 60px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #c3c3c3;
+    border-bottom: 2px solid #c3c3c3;
     text-align: center;
 }
 
@@ -367,6 +374,11 @@ img {
 .form-parent {
     display: inline;
     max-width: 600px;
+    min-height: 100%;
+    margin-bottom: -240px;
+    /* Put negative height of the footer here */
+    padding-bottom: 240px;
+    /* Put height of the footer here. Needed for higher than screen height pages */
 }
 
 .progress-parent {

@@ -22,4 +22,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         npm install
-        npm run ng -- deploy --cname=testprint.walink.org --name="GithubActionsDeploy" --email="cicd@example.org" --no-silent
+        npm run ng -- deploy --base-href=/biel-customize-print-webapp/ --name="GithubActionsDeploy" --email="cicd@example.org" --no-silent
